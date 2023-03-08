@@ -7,6 +7,7 @@ import App from './App'
 import ErrorPage from './components/error_page'
 import Quest from './pages/question'
 import Result from './pages/result'
+import About from './pages/refer'
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
   {
     path: "/result",
     element: <Result/>,
+    errorElement: <ErrorPage/>,
+  },
+  {
+    path: "about",
+    element: <About/>,
     errorElement: <ErrorPage/>,
   }
 ]);

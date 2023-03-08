@@ -2,12 +2,11 @@ import { Link } from "react-router-dom";
 import { useLocalStorage } from "usehooks-ts";
 export default function App() {
   return (
-    <section className='py-24 flex items-center min-h-screen justify-center bg-white'>
+    <section className='py-24 flex items-center min-h-screen justify-center from-[#F9F5F3] via-[#F9F5F3] to-[#F9F5F3] bg-gradient-to-br '>
       <div className='mx-auto max-w-[43rem]'>
         <div className='text-center'>
           <p className='text-lg font-medium leading-8 text-indigo-600/95'>
-          {/* 01418223-65 */}
-          Mini Project Tinder
+          Mini Project
           </p>
           <h1 className='mt-3 text-[3.5rem] font-bold leading-[4rem] tracking-tight text-black'>
             Data Science and Application Programs
@@ -35,13 +34,21 @@ export default function App() {
             เริ่มตอบคำถาม
           </Link>
           
-          <a
+          {/* <a
             href='#'
             className='transform rounded-md border border-slate-200 px-5 py-3 font-medium text-slate-900 transition-colors hover:bg-slate-50'
           >
             {" "}
             ผู้จัดทำ{" "}
-          </a>
+          </a> */}
+          <Link
+            to='/about'
+            className='transform rounded-md border border-slate-200 px-5 py-3 font-medium text-slate-900 transition-colors hover:bg-slate-50'
+          >
+            {" "}
+            ผู้จัดทำ{" "}
+          </Link>
+
         </div>
       </div>
     </section>
