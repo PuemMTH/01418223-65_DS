@@ -18,9 +18,9 @@ export default function refer() {
                 <span
                     class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-green-100 bg-green-500 rounded-full"
                 >
-                    6421600094
+                    6421600204
                 </span>
-                &nbsp;นาย ธนวัฒน์ สุขสวัสดิ์
+                &nbsp;พัชรพล เลารุจิราลัย
                 </p>
             </div>
             <div class="flex justify-end mt-4">
