@@ -5,7 +5,7 @@ import { useLocalStorage } from "usehooks-ts";
 export default function App() {
   const nevigat = useNavigate();
   const [result, setResult] = useState("");
-  const [local, setLocal] = useLocalStorage("result", "");
+  const [getlocal, setLocal] = useLocalStorage("result", "");
 
   //   equipment = PhoneTabet
   //   |   Co = std: Moba (54.0/25.0)
@@ -98,32 +98,33 @@ export default function App() {
       ],
     },
   ];
-  useEffect(() => {
-    const local = JSON.parse(localStorage.getItem("result"));
-
-    if(local.q5 == "มือถือ/แท็บเล็ต"){
-        if (local.q3 == "นักเรียน / นักศึกษา") {
+useEffect(() => {
+    const local = getlocal;
+  
+    if (local) {
+      if (local.q5 === "มือถือ/แท็บเล็ต") {
+        if (local.q3 === "นักเรียน / นักศึกษา") {
+          setResult("Moba");
+        } else if (local.q3 === "งานบริษัท/ข้าราชการ") {
+          setResult("RPG");
+        } else if (local.q3 === "ธุรกิจส่วนตัว") {
+          if (local.q1 === "ผู้ชาย") {
+            setResult("FPS");
+          } else if (local.q1 === "ผู้หญิง") {
             setResult("Moba");
-        }else if (local.q3 == "งานบริษัท/ข้าราชการ") {
-            setResult("RPG");
-        }else if (local.q3 == "ธุรกิจส่วนตัว") {
-            if (local.q1 == "ผู้ชาย") {
-                setResult("FPS");
-            }
-            if (local.q1 == "ผู้หญิง") {
-                setResult("Moba");
-            }
+          }
         }
-        else if(local.q5 == "คอมพิวเตอร์"){
-            setResult("FPS");
-        }
-        else if(local.q5 == "เครื่อง console"){
-            setResult("FPS");
-        }
+      } else if (local.q5 === "คอมพิวเตอร์" || local.q5 === "เครื่อง console") {
+        setResult("FPS");
+      } else {
+        setResult("ไม่มีข้อมูล");
+      }
+    } else {
+      setResult("ไม่มีข้อมูล");
     }
-
   }, []);
-  return (
+
+return (
     <main class='flex h-screen w-screen items-center justify-center bg-gray-700'>
       <div>
         <div class='group bg-gray-900 p-4 transition-all duration-300 hover:rotate-1 lg:p-8'>
