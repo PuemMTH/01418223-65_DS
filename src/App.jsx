@@ -1,34 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+import { Link } from "react-router-dom";
+import { useLocalStorage } from "usehooks-ts";
+export default function App() {
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
-}
+    <section className='py-24 flex items-center min-h-screen justify-center bg-white'>
+      <div className='mx-auto max-w-[43rem]'>
+        <div className='text-center'>
+          <p className='text-lg font-medium leading-8 text-indigo-600/95'>
+          {/* 01418223-65 */}
+          Mini Project Tinder
+          </p>
+          <h1 className='mt-3 text-[3.5rem] font-bold leading-[4rem] tracking-tight text-black'>
+            Data Science and Application Programs
+          </h1>
+          <p className='mt-3 text-lg leading-relaxed text-slate-400'>
+            พัฒนาโปรแกรมและแอปพลิเคชันด้วยภาษา Javascript และ Framwork React
+          </p>
+        </div>
 
-export default App
+        <div className='mt-6 flex items-center justify-center gap-4'>
+          {/* <a
+            href='#'
+            className='transform rounded-md bg-indigo-600/95 px-5 py-3 font-medium text-white transition-colors hover:bg-indigo-700'
+          >
+            เริ่มตอบคำถาม
+          </a> */}
+          
+          <Link
+            to='/q/1'
+            className='transform rounded-md bg-indigo-600/95 px-5 py-3 font-medium text-white transition-colors hover:bg-indigo-700'
+            onClick={() => {
+              localStorage.clear();
+            }}
+          >
+            เริ่มตอบคำถาม
+          </Link>
+          
+          <a
+            href='#'
+            className='transform rounded-md border border-slate-200 px-5 py-3 font-medium text-slate-900 transition-colors hover:bg-slate-50'
+          >
+            {" "}
+            ผู้จัดทำ{" "}
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}

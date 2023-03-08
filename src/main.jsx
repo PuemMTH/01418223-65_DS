@@ -1,10 +1,33 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './index.css'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+import App from './App'
+import ErrorPage from './components/error_page'
+import Quest from './pages/question'
+import Result from './pages/result'
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App/>,
+    errorElement: <ErrorPage/>,
+  },
+  {
+    path: "/q/:id",
+    element: <Quest/>,
+    errorElement: <ErrorPage/>,
+  },
+  {
+    path: "/result",
+    element: <Result/>,
+    errorElement: <ErrorPage/>,
+  }
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
